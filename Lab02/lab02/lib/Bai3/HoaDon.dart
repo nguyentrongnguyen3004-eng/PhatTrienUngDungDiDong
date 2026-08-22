@@ -13,12 +13,7 @@ abstract class HoaDon {
     _giaBan = 1;
   }
 
-  HoaDon.full(
-    String maKH,
-    String tenKH,
-    int soLuong,
-    double giaBan,
-  ) {
+  HoaDon.full(String maKH, String tenKH, int soLuong, double giaBan) {
     this.maKH = maKH;
     this.tenKH = tenKH;
     this.soLuong = soLuong;
@@ -43,9 +38,7 @@ abstract class HoaDon {
 
   set tenKH(String value) {
     if (value.trim().isEmpty) {
-      throw ArgumentError(
-        'Tên khách hàng không được để trống',
-      );
+      throw ArgumentError('Tên khách hàng không được để trống');
     }
 
     _tenKH = value.trim();
@@ -55,9 +48,7 @@ abstract class HoaDon {
 
   set soLuong(int value) {
     if (value <= 0) {
-      throw ArgumentError(
-        'Số lượng phải lớn hơn 0',
-      );
+      throw ArgumentError('Số lượng phải lớn hơn 0');
     }
 
     _soLuong = value;
@@ -67,9 +58,7 @@ abstract class HoaDon {
 
   set giaBan(double value) {
     if (value <= 0) {
-      throw ArgumentError(
-        'Giá bán phải lớn hơn 0',
-      );
+      throw ArgumentError('Giá bán phải lớn hơn 0');
     }
 
     _giaBan = value;
@@ -90,9 +79,7 @@ abstract class HoaDon {
   }
 
   double tinhThanhTien() {
-    return tinhTienHang() -
-        tinhChietKhau() +
-        tinhVAT();
+    return tinhTienHang() - tinhChietKhau() + tinhVAT();
   }
 
   void nhapThongTinChung() {
@@ -119,32 +106,20 @@ abstract class HoaDon {
     while (true) {
       try {
         stdout.write('Nhập số lượng: ');
-
-        soLuong = int.parse(
-          stdin.readLineSync() ?? '',
-        );
-
+        soLuong = int.parse(stdin.readLineSync() ?? '');
         break;
       } catch (e) {
-        print(
-          'Lỗi: Số lượng phải là số nguyên > 0',
-        );
+        print('Lỗi: Số lượng phải là số nguyên > 0');
       }
     }
 
     while (true) {
       try {
         stdout.write('Nhập giá bán: ');
-
-        giaBan = double.parse(
-          stdin.readLineSync() ?? '',
-        );
-
+        giaBan = double.parse(stdin.readLineSync() ?? '');
         break;
       } catch (e) {
-        print(
-          'Lỗi: Giá bán phải là số > 0',
-        );
+        print('Lỗi: Giá bán phải là số > 0');
       }
     }
   }
@@ -155,24 +130,12 @@ abstract class HoaDon {
     print('Mã khách hàng : $_maKH');
     print('Tên khách hàng: $_tenKH');
     print('Số lượng      : $_soLuong');
-    print(
-      'Giá bán       : ${dinhDangTien(_giaBan)}',
-    );
-    print(
-      'Tiền hàng     : ${dinhDangTien(tinhTienHang())}',
-    );
-    print(
-      'VAT           : ${dinhDangTien(tinhVAT())}',
-    );
-    print(
-      'Chiết khấu    : ${dinhDangTien(tinhChietKhau())}',
-    );
-    print(
-      'Trợ giá       : ${dinhDangTien(tinhTroGia())}',
-    );
-    print(
-      'Thành tiền    : ${dinhDangTien(tinhThanhTien())}',
-    );
+    print('Giá bán       : ${dinhDangTien(_giaBan)}');
+    print('Tiền hàng     : ${dinhDangTien(tinhTienHang())}');
+    print('VAT           : ${dinhDangTien(tinhVAT())}');
+    print('Chiết khấu    : ${dinhDangTien(tinhChietKhau())}');
+    print('Trợ giá       : ${dinhDangTien(tinhTroGia())}');
+    print('Thành tiền    : ${dinhDangTien(tinhThanhTien())}');
   }
 
   String dinhDangTien(double value) {

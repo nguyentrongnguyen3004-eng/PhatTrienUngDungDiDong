@@ -1,10 +1,8 @@
-// IMPORT BÀI TẬP 1
 import 'phong.dart';
 import 'phongA.dart';
 import 'readfile.dart';
 
 void main() async {
-  // BÀI TẬP 1
   List<Phong> ds = await readFilePhong('lib/Bai1/phongthue.txt');
 
   print('================================================');

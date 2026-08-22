@@ -145,8 +145,6 @@ void main() async {
 }
 
 // ======================================================
-// NHẬP DANH SÁCH MÔN HỌC
-// ======================================================
 
 List<MonHoc> nhapDuLieu() {
   List<MonHoc> dsMonHoc = [];
@@ -187,8 +185,6 @@ List<MonHoc> nhapDuLieu() {
   return dsMonHoc;
 }
 
-// ======================================================
-// NHẬP 1 MÔN HỌC
 // ======================================================
 
 MonHoc? nhapMotMonHoc({String? tenCoSan}) {
@@ -320,8 +316,6 @@ MonHoc? nhapMotMonHoc({String? tenCoSan}) {
 }
 
 // ======================================================
-// KIỂM TRA DANH SÁCH TĂNG DẦN THEO TÊN
-// ======================================================
 
 bool kiemTraTangTheoTen(List<MonHoc> ds) {
   for (int i = 0; i < ds.length - 1; i++) {
@@ -336,8 +330,6 @@ bool kiemTraTangTheoTen(List<MonHoc> ds) {
   return true;
 }
 
-// ======================================================
-// TÌM MÔN HỌC THEO TÊN
 // ======================================================
 
 void timMonHocTheoTen(List<MonHoc> ds) {
@@ -372,8 +364,6 @@ void timMonHocTheoTen(List<MonHoc> ds) {
   }
 }
 
-// ======================================================
-// ĐỌC DANH SÁCH MÔN HỌC TỪ FILE
 // ======================================================
 
 Future<List<MonHoc>> readFileMonHoc(

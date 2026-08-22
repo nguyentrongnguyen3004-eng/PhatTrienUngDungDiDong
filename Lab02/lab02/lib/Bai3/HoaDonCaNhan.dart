@@ -12,12 +12,7 @@ class HoaDonCaNhan extends HoaDon {
     int soLuong,
     double giaBan,
     double khoangCach,
-  ) : super.full(
-          maKH,
-          tenKH,
-          soLuong,
-          giaBan,
-        ) {
+  ) : super.full(maKH, tenKH, soLuong, giaBan) {
     this.khoangCach = khoangCach;
   }
 
@@ -25,9 +20,7 @@ class HoaDonCaNhan extends HoaDon {
 
   set khoangCach(double value) {
     if (value < 0) {
-      throw ArgumentError(
-        'Khoảng cách không được âm',
-      );
+      throw ArgumentError('Khoảng cách không được âm');
     }
 
     _khoangCach = value;
@@ -38,13 +31,11 @@ class HoaDonCaNhan extends HoaDon {
     double chietKhau = 0;
 
     if (soLuong >= 3) {
-      chietKhau +=
-          soLuong * giaBan * 0.05;
+      chietKhau += soLuong * giaBan * 0.05;
     }
 
     if (_khoangCach < 10) {
-      chietKhau +=
-          soLuong * 50000;
+      chietKhau += soLuong * 50000;
     }
 
     return chietKhau;
@@ -52,8 +43,7 @@ class HoaDonCaNhan extends HoaDon {
 
   @override
   double tinhTroGia() {
-    double troGia =
-        soLuong * giaBan * 0.02;
+    double troGia = soLuong * giaBan * 0.02;
 
     if (soLuong > 2) {
       troGia += 100000;
@@ -64,41 +54,27 @@ class HoaDonCaNhan extends HoaDon {
 
   @override
   void nhap() {
-    print(
-      '\n--- NHẬP KHÁCH HÀNG CÁ NHÂN ---',
-    );
+    print('\n--- NHẬP KHÁCH HÀNG CÁ NHÂN ---');
 
     nhapThongTinChung();
 
     while (true) {
       try {
-        stdout.write(
-          'Nhập khoảng cách giao hàng (km): ',
-        );
-
-        khoangCach = double.parse(
-          stdin.readLineSync() ?? '',
-        );
-
+        stdout.write('Nhập khoảng cách giao hàng (km): ');
+        khoangCach = double.parse(stdin.readLineSync() ?? '');
         break;
       } catch (e) {
-        print(
-          'Lỗi: Khoảng cách phải >= 0',
-        );
+        print('Lỗi: Khoảng cách phải >= 0');
       }
     }
   }
 
   @override
   void xuat() {
-    print(
-      '\n===== KHÁCH HÀNG CÁ NHÂN =====',
-    );
+    print('\n===== KHÁCH HÀNG CÁ NHÂN =====');
 
     super.xuat();
 
-    print(
-      'Khoảng cách   : $_khoangCach km',
-    );
+    print('Khoảng cách   : $_khoangCach km');
   }
 }

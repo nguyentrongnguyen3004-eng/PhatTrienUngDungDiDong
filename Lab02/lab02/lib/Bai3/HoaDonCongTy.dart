@@ -12,12 +12,7 @@ class HoaDonCongTy extends HoaDon {
     int soLuong,
     double giaBan,
     int soNhanVien,
-  ) : super.full(
-          maKH,
-          tenKH,
-          soLuong,
-          giaBan,
-        ) {
+  ) : super.full(maKH, tenKH, soLuong, giaBan) {
     this.soNhanVien = soNhanVien;
   }
 
@@ -25,9 +20,7 @@ class HoaDonCongTy extends HoaDon {
 
   set soNhanVien(int value) {
     if (value <= 0) {
-      throw ArgumentError(
-        'Số nhân viên phải lớn hơn 0',
-      );
+      throw ArgumentError('Số nhân viên phải lớn hơn 0');
     }
 
     _soNhanVien = value;
@@ -47,9 +40,7 @@ class HoaDonCongTy extends HoaDon {
 
   @override
   double tinhChietKhau() {
-    return soLuong *
-        giaBan *
-        tinhTyLeChietKhau();
+    return soLuong * giaBan * tinhTyLeChietKhau();
   }
 
   @override
@@ -59,46 +50,30 @@ class HoaDonCongTy extends HoaDon {
 
   @override
   void nhap() {
-    print(
-      '\n--- NHẬP KHÁCH HÀNG CÔNG TY ---',
-    );
+    print('\n--- NHẬP KHÁCH HÀNG CÔNG TY ---');
 
     nhapThongTinChung();
 
     while (true) {
       try {
-        stdout.write(
-          'Nhập số lượng nhân viên: ',
-        );
-
-        soNhanVien = int.parse(
-          stdin.readLineSync() ?? '',
-        );
-
+        stdout.write('Nhập số lượng nhân viên: ');
+        soNhanVien = int.parse(stdin.readLineSync() ?? '');
         break;
       } catch (e) {
-        print(
-          'Lỗi: Số lượng nhân viên phải > 0',
-        );
+        print('Lỗi: Số lượng nhân viên phải > 0');
       }
     }
   }
 
   @override
   void xuat() {
-    print(
-      '\n===== KHÁCH HÀNG CÔNG TY =====',
-    );
+    print('\n===== KHÁCH HÀNG CÔNG TY =====');
 
     super.xuat();
 
+    print('Số nhân viên  : $_soNhanVien');
     print(
-      'Số nhân viên  : $_soNhanVien',
-    );
-
-    print(
-      'Tỷ lệ chiết khấu: '
-      '${(tinhTyLeChietKhau() * 100).toStringAsFixed(0)}%',
+      'Tỷ lệ chiết khấu: ${(tinhTyLeChietKhau() * 100).toStringAsFixed(0)}%',
     );
   }
 }
