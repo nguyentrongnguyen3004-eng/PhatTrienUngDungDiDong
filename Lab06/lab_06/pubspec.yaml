@@ -33,9 +33,18 @@ dependencies:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  image_picker: ^0.8.7+4
-  permission_handler: ^11.2.0
-  video_player: ^2.5.1
+  #image_picker: ^0.8.7+4
+  #permission_handler: ^11.2.0
+  #video_player: ^2.5.1
+
+  image_picker: ^1.1.2
+  permission_handler: ^11.3.1
+  video_player: ^2.9.2
+  another_telephony:
+    path: plugins/another_telephony
+  flutter_contacts_service:
+    path: plugins/flutter_contacts_service
+  audioplayers: ^6.1.0
 
 dev_dependencies:
   flutter_test:
@@ -58,6 +67,9 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+
+  assets:
+    - assets/audios/
 
   # To add assets to your application, add an assets section, like this:
   # assets:
